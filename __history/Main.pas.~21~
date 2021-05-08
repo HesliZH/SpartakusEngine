@@ -36,8 +36,6 @@ begin
   if txtLogin.Text = '' then
   begin
     Application.MessageBox('Preencha o campo login!', 'Atenção!', MB_OK);
-  end
-  else
     if txtSenha.Text = '' then
     begin
       Application.MessageBox('Preencha a sua senha por favor', 'Atenção', MB_OK);
@@ -56,7 +54,7 @@ begin
         else
           Application.MessageBox('Usuário não localizado', 'Erro ao logar', MB_OK);
     end;
-
+  end;
 
 
 end;
