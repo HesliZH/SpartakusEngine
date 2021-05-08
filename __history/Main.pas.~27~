@@ -29,30 +29,34 @@ implementation
 
 {$R *.dfm}
 
-uses DmLogin;
+uses DmLogin, Principal;
 
 procedure TFoLogin.btnLoginClick(Sender: TObject);
 begin
-
   if txtLogin.Text = '' then
   begin
     Application.MessageBox('Preencha o campo login!', 'Atenção!', MB_OK);
-    if txtSenha.Text = '' then
-      Application.MessageBox('Preencha sua senha por favor', 'Atenção!', MB_OK);
   end
-  else;
-  begin
-    DataModuleUsuarios.QueryUsuarios.SQL.Add('SELECT CODIGO FROM USUARIOS ');
-    DataModuleUsuarios.QueryUsuarios.SQL.Add('WHERE LOGIN = ' + QuotedStr(txtLogin.Text));
-    DataModuleUsuarios.QueryUsuarios.SQL.Add(' AND SENHA = ' + QuotedStr(txtSenha.Text));
-    DataModuleUsuarios.QueryUsuarios.OpenSQL();
-  end;
-
-  if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
-    //Mostra novo form
   else
-    Application.MessageBox('Usuário não localizado', 'Erro ao logar', MB_OK);
+    if txtSenha.Text = '' then
+    begin
+      Application.MessageBox('Preencha a sua senha por favor', 'Atenção', MB_OK);
+    end
+    else
+    begin
+        DataModuleUsuarios.QueryUsuarios.SQL.Add('SELECT CODIGO FROM USUARIOS ');
+        DataModuleUsuarios.QueryUsuarios.SQL.Add('WHERE LOGIN = ' + QuotedStr(txtLogin.Text));
+        DataModuleUsuarios.QueryUsuarios.SQL.Add(' AND SENHA = ' + QuotedStr(txtSenha.Text));
+        DataModuleUsuarios.QueryUsuarios.Open();
+        if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
+        begin
+          Self.Close;
+          foPrincipal.Show;
 
+        end
+        else
+          Application.MessageBox('Usuário não localizado', 'Erro ao logar', MB_OK);
+    end;
 end;
 
 procedure TFoLogin.btnSairClick(Sender: TObject);

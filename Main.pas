@@ -29,7 +29,7 @@ implementation
 
 {$R *.dfm}
 
-uses DmLogin;
+uses DmLogin, Principal;
 
 procedure TFoLogin.btnLoginClick(Sender: TObject);
 begin
@@ -50,15 +50,12 @@ begin
         DataModuleUsuarios.QueryUsuarios.Open();
         if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
         begin
-          //Application.MessageBox('Usuário localizado!', 'Sucesso', MB_OK);
-
+          Self.Close;
+          foPrincipal.Show;
         end
         else
           Application.MessageBox('Usuário não localizado', 'Erro ao logar', MB_OK);
     end;
-
-
-
 end;
 
 procedure TFoLogin.btnSairClick(Sender: TObject);
