@@ -33,20 +33,10 @@ uses DmLogin;
 
 procedure TFoLogin.btnLoginClick(Sender: TObject);
 begin
-
-  if txtLogin.Text = '' then
-  begin
-    Application.MessageBox('Preencha o campo login!', 'Atenção!', MB_OK);
-    if txtSenha.Text = '' then
-      Application.MessageBox('Preencha sua senha por favor', 'Atenção!', MB_OK);
-  end
-  else;
-  begin
-    DataModuleUsuarios.QueryUsuarios.SQL.Add('SELECT CODIGO FROM USUARIOS ');
-    DataModuleUsuarios.QueryUsuarios.SQL.Add('WHERE LOGIN = ' + QuotedStr(txtLogin.Text));
-    DataModuleUsuarios.QueryUsuarios.SQL.Add(' AND SENHA = ' + QuotedStr(txtSenha.Text));
-    DataModuleUsuarios.QueryUsuarios.ExecSQL();
-  end;
+  DataModuleUsuarios.QueryUsuarios.SQL.Add('SELECT CODIGO FROM USUARIOS ');
+  DataModuleUsuarios.QueryUsuarios.SQL.Add('WHERE LOGIN = ' + QuotedStr(txtLogin.Text));
+  DataModuleUsuarios.QueryUsuarios.SQL.Add(' AND SENHA = ' + QuotedStr(txtSenha.Text));
+  DataModuleUsuarios.QueryUsuarios.ExecSQL();
 
   if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
     //Mostra novo form

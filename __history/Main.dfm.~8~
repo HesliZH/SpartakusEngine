@@ -48,7 +48,6 @@ object FoLogin: TFoLogin
     Height = 25
     Caption = 'Entrar'
     TabOrder = 2
-    OnClick = btnLoginClick
   end
   object btnSair: TButton
     Left = 230

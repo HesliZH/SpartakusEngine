@@ -10,7 +10,7 @@ uses
   FireDAC.Comp.DataSet, FireDAC.Comp.Client, FireDAC.Phys.FB, FireDAC.Phys.FBDef;
 
 type
-  TDataModuleUsuarios = class(TDataModule)
+  TDataModule1 = class(TDataModule)
     Conexao: TFDConnection;
     QueryUsuarios: TFDQuery;
   private
@@ -20,7 +20,7 @@ type
   end;
 
 var
-  DataModuleUsuarios: TDataModuleUsuarios;
+  DataModule1: TDataModule1;
 
 implementation
 
