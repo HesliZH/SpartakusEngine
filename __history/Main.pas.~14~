@@ -45,7 +45,7 @@ begin
     DataModuleUsuarios.QueryUsuarios.SQL.Add('SELECT CODIGO FROM USUARIOS ');
     DataModuleUsuarios.QueryUsuarios.SQL.Add('WHERE LOGIN = ' + QuotedStr(txtLogin.Text));
     DataModuleUsuarios.QueryUsuarios.SQL.Add(' AND SENHA = ' + QuotedStr(txtSenha.Text));
-    DataModuleUsuarios.QueryUsuarios.Open();
+    DataModuleUsuarios.QueryUsuarios.OpenSQL();
   end;
 
   if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
