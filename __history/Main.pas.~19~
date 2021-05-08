@@ -50,8 +50,7 @@ begin
       DataModuleUsuarios.QueryUsuarios.Open();
       if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
       begin
-        //Application.MessageBox('Usuário localizado!', 'Sucesso', MB_OK);
-
+        Application.MessageBox('Usuário localizado!', 'Sucesso', MB_OK);
       end
       else
         Application.MessageBox('Usuário não localizado', 'Erro ao logar', MB_OK);

@@ -50,12 +50,17 @@ begin
       DataModuleUsuarios.QueryUsuarios.Open();
       if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
       begin
-        //Application.MessageBox('Usuário localizado!', 'Sucesso', MB_OK);
-
+        Application.MessageBox('Usuário localizado!', 'Sucesso', MB_OK);
       end
       else
         Application.MessageBox('Usuário não localizado', 'Erro ao logar', MB_OK);
   end;
+
+  if DataModuleUsuarios.QueryUsuarios.RowsAffected > 0 then
+    //Mostra novo form
+  else
+    Application.MessageBox('Usuário não localizado', 'Erro ao logar', MB_OK);
+
 end;
 
 procedure TFoLogin.btnSairClick(Sender: TObject);
