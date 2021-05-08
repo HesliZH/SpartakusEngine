@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls;
 
 type
-  TFoLogin = class(TForm)
+  TForm1 = class(TForm)
     txtLogin: TEdit;
     Label1: TLabel;
     Label2: TLabel;
@@ -22,13 +22,13 @@ type
   end;
 
 var
-  FoLogin: TFoLogin;
+  Form1: TForm1;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFoLogin.btnSairClick(Sender: TObject);
+procedure TForm1.btnSairClick(Sender: TObject);
 begin
   Self.Close;
 end;

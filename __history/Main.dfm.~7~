@@ -1,7 +1,7 @@
-object FoLogin: TFoLogin
+object Form1: TForm1
   Left = 0
   Top = 0
-  Caption = 'Spartakus Engine - HitKill Studios'
+  Caption = 'Form1'
   ClientHeight = 358
   ClientWidth = 330
   Color = clBtnFace
